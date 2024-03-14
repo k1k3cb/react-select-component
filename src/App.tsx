@@ -1,7 +1,14 @@
-import React from 'react'
+import { useState } from 'react';
+import Select from './components/select/Select';
+import { OPTIONS } from './constants/options';
 
 export const App = () => {
+  const [value, setValue] = useState<(typeof OPTIONS)[0] | undefined>(
+    OPTIONS[0]
+  );
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <Select options={OPTIONS} value={value} onChange={o => setValue(o)} />
+    </>
+  );
+};
